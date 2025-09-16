@@ -1,0 +1,12 @@
+Agreement Type: 9. Other (specify)
+Summary Length: 199 words
+Generated on: 2025-09-08 13:06:27
+
+==================================================
+This document details a C programming project: a Timetable Generator for educational institutions.  The project aims to automate timetable creation, addressing the time-consuming nature of manual scheduling.  Key objectives include efficient resource allocation (teachers, subjects, time slots), minimizing scheduling conflicts, and ensuring scalability for institutions of varying sizes.  The program offers flexibility, allowing customization for student or faculty needs.
+
+The core algorithm involves inputting the number of subjects and their names.  A table representing days and time slots is initialized.  The user selects either a student or faculty-centric timetable generation mode.  The student mode randomly assigns subjects to slots, while the faculty mode allows manual input of subject-teacher assignments.  Error handling is included for invalid input.
+
+The C code uses functions for random subject assignment (`randomSubject`) and includes error checks to prevent exceeding the maximum number of subjects (7).  The output is a timetable displayed as a 6x8 table (days x time slots), populating the table with subject names or teacher assignments based on the selected mode.  The flowchart visually represents the program's logic.  No financial terms, penalties, duration, termination provisions, or special conditions are mentioned; the document solely focuses on the technical aspects of the timetable generator program.
+
+==================================================
