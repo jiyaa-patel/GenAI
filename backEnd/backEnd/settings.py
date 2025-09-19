@@ -99,20 +99,11 @@ WSGI_APPLICATION = 'backEnd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+# Use SQLite locally to avoid Cloud SQL connectivity issues.
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gen-ai',
-        'USER': 'postgres',
-        'PASSWORD': 'Temp#1234',
-        'HOST': '35.224.143.5', 
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
