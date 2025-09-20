@@ -1,0 +1,14 @@
+Agreement Type: 5. Employment Agreement
+Summary Length: 206 words
+Generated on: 2025-09-17 00:29:10
+
+==================================================
+This Employment Agreement, effective September 1st, 2025, outlines the terms of employment for Ms. Neha Patel as a Senior Software Engineer at BrightCode Technologies Private Limited.  Her primary responsibilities include full-time dedication to her duties, adherence to company policies, and refraining from working for competitors.  She will be based in Ahmedabad, with potential travel within India or abroad.
+
+Ms. Patel's annual CTC is ₹9,00,000, paid monthly, inclusive of statutory deductions.  Benefits include reimbursement of valid business expenses and 18 days of annual paid leave, plus gazetted holidays.  The agreement doesn't specify a probation period.
+
+The notice period for termination is two months, either through written notice or payment in lieu thereof.  Ms. Patel must return all company property upon termination.  The agreement includes a non-compete clause prohibiting working for competitors during and for one year post-employment, and a non-solicitation clause preventing her from soliciting clients or employees during and for one year after employment.
+
+A separate Confidentiality and Intellectual Property Assignment Agreement will be executed, outlining detailed confidentiality obligations. Breach of confidentiality, intellectual property, or non-compete clauses may result in injunctive relief and damages. Disputes will be resolved under Indian law in the courts of Ahmedabad, Gujarat.  The agreement constitutes the entire understanding between the parties.
+
+==================================================
