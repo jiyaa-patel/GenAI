@@ -729,13 +729,14 @@ async def ask_question(request: QueryRequest):
         with open(temp_index_path, "wb") as f:
             f.write(index_data)
         
-        index = faiss.read_index(temp_index_path)
+        print(f"FAISS index saved to: {temp_index_path}")
+        print(f"File exists: {os.path.exists(temp_index_path)}")
+        print(f"File size: {os.path.getsize(temp_index_path) if os.path.exists(temp_index_path) else 'N/A'} bytes")
         
-        # Clean up temp file
-        try:
-            os.remove(temp_index_path)
-        except:
-            pass
+        index = faiss.read_index(temp_index_path)
+        print(f"FAISS index loaded successfully with {index.ntotal} vectors")
+        
+        # Don't clean up temp file yet - keep it for the duration of the request
         
         # Download chunks from GCS
         chunks_blob_path = '/'.join(doc.gcs_chunks_uri.split('/')[3:])
@@ -985,6 +986,14 @@ Remember: Your goal is to make legal documents understandable for non-legal prof
         except Exception as e:
             print(f"Warning: Could not update chat session: {e}")
         
+        # Clean up temp FAISS index file
+        try:
+            if 'temp_index_path' in locals() and os.path.exists(temp_index_path):
+                os.remove(temp_index_path)
+                print(f"Cleaned up temp file: {temp_index_path}")
+        except Exception as cleanup_error:
+            print(f"Warning: Could not clean up temp file: {cleanup_error}")
+        
         return QueryResponse(
             success=True,
             response=response_text,
@@ -994,6 +1003,13 @@ Remember: Your goal is to make legal documents understandable for non-legal prof
         
     except Exception as e:
         print(f"Error processing question: {e}")
+        # Clean up temp FAISS index file in case of error
+        try:
+            if 'temp_index_path' in locals() and os.path.exists(temp_index_path):
+                os.remove(temp_index_path)
+                print(f"Cleaned up temp file after error: {temp_index_path}")
+        except Exception as cleanup_error:
+            print(f"Warning: Could not clean up temp file after error: {cleanup_error}")
         raise HTTPException(status_code=500, detail=f"Error processing question: {str(e)}")
 
 @app.get("/api/chat-sessions", response_model=List[ChatSession])
