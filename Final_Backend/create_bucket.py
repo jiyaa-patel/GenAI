@@ -3,7 +3,7 @@ import os
 from google.cloud import storage
 
 # Set credentials
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.abspath("credentials/gen-ai-legal-536c695ad0a1.json")
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.abspath("credentials/gen-ai-legal-6480fd4d86ab.json")
 
 try:
     client = storage.Client()

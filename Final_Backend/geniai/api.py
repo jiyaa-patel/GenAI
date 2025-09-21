@@ -162,7 +162,7 @@ parent_dir = current_dir.parent
 sys.path.insert(0, str(parent_dir))
 
 # Set GCS credentials
-creds_path = os.path.join(parent_dir, "credentials", "gen-ai-legal-536c695ad0a1.json")
+creds_path = os.path.join(parent_dir, "credentials", "gen-ai-legal-6480fd4d86ab.json")
 if os.path.exists(creds_path):
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = creds_path
     print(f"Set GCS credentials: {creds_path}")
