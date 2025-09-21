@@ -1,5 +1,6 @@
 # Credentials and Environment Files
 credentials/
+credentials/*.json
 *.env
 .env*
 CREDENTIALS*.md
