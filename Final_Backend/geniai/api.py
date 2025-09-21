@@ -699,30 +699,90 @@ async def ask_question(request: QueryRequest):
                 detail="Document not processed yet. Please wait for document processing to complete before asking questions."
             )
         
-        # Load the document's index and chunks from GCS
-        from geniai.models import Document
-        doc = await sync_to_async(Document.objects.get)(id=document_id)
-        
-        if not doc.gcs_vector_uri or not doc.gcs_chunks_uri:
-            raise HTTPException(status_code=404, detail="Document vectors not found in GCS.")
-        
-        # Load from GCS
-        from google.cloud import storage
-        import tempfile
-        import io
-        storage_client = storage.Client()
-        
-        print(f"Loading from GCS: {doc.gcs_vector_uri}")
-        
-        # Download FAISS index from GCS to memory
-        bucket_name = doc.gcs_vector_uri.split('/')[2]
-        index_blob_path = '/'.join(doc.gcs_vector_uri.split('/')[3:])
-        bucket = storage_client.bucket(bucket_name)
-        index_blob = bucket.blob(index_blob_path)
+        # Try to load from database first, fallback to GCS if database fails
+        try:
+            from geniai.models import Document
+            doc = await sync_to_async(Document.objects.get)(id=document_id)
+            
+            if not doc.gcs_vector_uri or not doc.gcs_chunks_uri:
+                raise HTTPException(status_code=404, detail="Document vectors not found in GCS.")
+            
+            # Load from GCS using database info
+            from google.cloud import storage
+            import tempfile
+            import io
+            storage_client = storage.Client()
+            
+            print(f"Loading from GCS: {doc.gcs_vector_uri}")
+            
+            # Download FAISS index from GCS to memory
+            bucket_name = doc.gcs_vector_uri.split('/')[2]
+            index_blob_path = '/'.join(doc.gcs_vector_uri.split('/')[3:])
+            bucket = storage_client.bucket(bucket_name)
+            index_blob = bucket.blob(index_blob_path)
+            
+        except Exception as db_error:
+            print(f"Database connection failed: {db_error}")
+            print("Falling back to GCS-only approach...")
+            
+            # Fallback: Load from GCS using the document_id
+            from google.cloud import storage
+            import tempfile
+            import io
+            storage_client = storage.Client()
+            
+            # Try to find the document in GCS using the document_id
+            bucket_name = os.getenv("GCS_BUCKET_NAME", "legal-agreement-analyzer-gen-ai-legal")
+            bucket = storage_client.bucket(bucket_name)
+            
+            # Try different path structures to find the document
+            possible_paths = [
+                # Try with anonymous user first (most common fallback)
+                f"users/anonymous/vectorstore/{document_id}/index.faiss",
+                f"users/anonymous/vectorstore/{document_id}/chunks.json",
+                # Try with different user patterns
+                f"users/xyz_gmail_com/vectorstore/{document_id}/index.faiss",
+                f"users/xyz_gmail_com/vectorstore/{document_id}/chunks.json",
+                # Try old path structure
+                f"documents/{document_id}/index.faiss",
+                f"documents/{document_id}/chunks.json",
+            ]
+            
+            vector_path = None
+            chunks_path = None
+            
+            # Find the correct paths by checking existence
+            for i in range(0, len(possible_paths), 2):
+                test_vector_path = possible_paths[i]
+                test_chunks_path = possible_paths[i + 1]
+                
+                index_blob = bucket.blob(test_vector_path)
+                chunks_blob = bucket.blob(test_chunks_path)
+                
+                if index_blob.exists() and chunks_blob.exists():
+                    vector_path = test_vector_path
+                    chunks_path = test_chunks_path
+                    print(f"Found document at: {vector_path}")
+                    break
+            
+            if not vector_path or not chunks_path:
+                # List all available files to help debug
+                print("Available files in GCS bucket:")
+                for blob in bucket.list_blobs(prefix="users/"):
+                    if document_id in blob.name:
+                        print(f"  {blob.name}")
+                
+                raise HTTPException(status_code=404, detail=f"Document vectors not found in GCS for document {document_id}. Please re-upload the document.")
+            
+            print(f"Loading from GCS fallback: {vector_path}")
+            index_blob = bucket.blob(vector_path)
         
         # Download to bytes and save to a writable temp directory
         index_data = index_blob.download_as_bytes()
-        temp_dir = os.path.join(os.getcwd(), "temp")
+        
+        # Use absolute path based on current file location
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        temp_dir = os.path.join(current_dir, "temp")
         os.makedirs(temp_dir, exist_ok=True)
         temp_index_path = os.path.join(temp_dir, f"index_{document_id}.faiss")
         
@@ -751,8 +811,14 @@ async def ask_question(request: QueryRequest):
         # Don't clean up temp file yet - keep it for the duration of the request
         
         # Download chunks from GCS
-        chunks_blob_path = '/'.join(doc.gcs_chunks_uri.split('/')[3:])
-        chunks_blob = bucket.blob(chunks_blob_path)
+        try:
+            # Try database approach first
+            chunks_blob_path = '/'.join(doc.gcs_chunks_uri.split('/')[3:])
+            chunks_blob = bucket.blob(chunks_blob_path)
+        except:
+            # Fallback approach
+            chunks_blob = bucket.blob(chunks_path)
+        
         chunks_data = chunks_blob.download_as_text()
         chunks = json.loads(chunks_data)
         
