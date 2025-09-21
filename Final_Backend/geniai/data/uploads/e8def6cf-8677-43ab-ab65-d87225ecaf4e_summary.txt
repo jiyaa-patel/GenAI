@@ -1,0 +1,14 @@
+Agreement Type: 5. Employment Agreement
+Summary Length: 234 words
+Generated on: 2025-09-17 23:45:47
+
+==================================================
+This Employment Agreement outlines the terms of employment between TechSolutions Private Limited ("Employer") and Mr. Rohan Sharma ("Employee") commencing August 20, 2025.  Mr. Sharma is appointed as a Software Developer, responsible for performing assigned duties, maintaining company dignity, adhering to laws and policies, reporting to his manager, and refraining from committing the company without consent. His responsibilities include following company rules and regulations.
+
+His annual base salary is ₹6,00,000 CTC, payable according to company policy.  A six-month probationary period applies, during which the Employer may terminate employment without cause with advance notice, except as prescribed by law.  Upon satisfactory completion, he attains regular employee status.
+
+The Employee must provide one month's written notice to resign.  Early termination within two years incurs a ₹2,00,000 penalty;  termination within six months of training necessitates reimbursement of training expenses. The Employer may terminate without notice for misconduct or breach of contract.  Specific details regarding working hours, leave, and holidays are not explicitly stated in this agreement but are subject to the Company's Employee Guidelines.
+
+The agreement includes confidentiality and non-compete clauses.  Mr. Sharma cannot disclose confidential information or work for a competing company for three years post-termination, with potential liability under Section 73 & 74 of the Indian Contract Act, 1872.  Disputes will be resolved through arbitration by Mr. Suresh Mehta under the Arbitration and Conciliation Act, 1996, in Jaipur.  The agreement is governed by Jaipur, Rajasthan laws.
+
+==================================================

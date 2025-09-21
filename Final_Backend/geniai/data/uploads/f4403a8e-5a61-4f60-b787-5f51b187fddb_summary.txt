@@ -1,0 +1,12 @@
+Agreement Type: 5. Employment Agreement
+Summary Length: 237 words
+Generated on: 2025-09-17 00:17:54
+
+==================================================
+This Employment Agreement outlines the terms of employment for Rohan Sharma as a Software Developer at TechSolutions Private Limited, Jaipur, effective August 20, 2025.  His responsibilities include performing assigned duties, adhering to company policies and laws, maintaining professional conduct, and reporting to his manager. He is prohibited from committing the company to any action without prior consent.  His annual salary is ₹6,00,000 CTC, paid according to company policy.
+
+A six-month probationary period applies, during which employment can be terminated by the company without cause, subject to applicable law.  The employee can resign with one month's written notice, but early termination within two years incurs a ₹2,00,000 penalty. The employer may terminate without notice for misconduct or breach of contract.  If employment ends within six months of training, training costs will be recovered.  Specific details regarding working hours, leave, and holidays are not explicitly detailed in this agreement but are presumably covered by the company’s Employee Guidelines.
+
+The agreement includes stringent confidentiality and non-compete clauses.  Mr. Sharma is prohibited from disclosing confidential information or working for a competing business for three years post-termination.  Violation of the non-compete clause subjects him to liability under Sections 73 & 74 of the Indian Contract Act, 1872. Any disputes arising from this agreement will be resolved through arbitration by Mr. Suresh Mehta, Advocate, under the Arbitration and Conciliation Act, 1996, in Jaipur.  The agreement is governed by the laws of Jaipur, Rajasthan.
+
+==================================================

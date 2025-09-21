@@ -1,0 +1,18 @@
+Agreement Type: 9. Other (specify)
+Summary Length: 264 words
+Generated on: 2025-09-18 16:36:44
+
+==================================================
+This document is a completion certificate issued by AWS Training & Certification, signed by Michelle Vaz, Director,  awarding DivyMevada completion of the "Introduction to Generative AI - Art of the Possible" training course.  The certificate indicates completion on June 29, 2025.
+
+This document itself lacks any explicit terms and conditions, obligations, rights, financial details, duration, termination provisions, or special conditions.  It serves solely as proof of course completion.  To understand the complete legal framework surrounding the training, one would need to refer to the terms and conditions governing participation in AWS Training & Certification programs, which are likely found in a separate agreement, possibly a registration or enrollment document.  Such an agreement would likely detail:
+
+* **Key Terms and Conditions:**  These could include acceptable use policies, intellectual property rights related to the training materials, limitations of liability, and dispute resolution mechanisms.
+* **Obligations and Rights:** Participant obligations might include adherence to code of conduct and payment of fees.  Rights could include access to course materials and a certificate upon completion.
+* **Financial Terms and Penalties:**  This section would specify the course fee, payment methods, and any penalties for late payment or course cancellation.
+* **Duration and Termination:** This would define the access period to training materials and potential reasons for termination of participation.
+* **Special Conditions:**  These might include specific requirements or restrictions related to the course content or access.
+
+In conclusion, this certificate confirms course completion, but a broader agreement would govern the overall legal aspects of the training program.  Without access to that separate agreement, a thorough legal analysis cannot be provided.
+
+==================================================
