@@ -146,5 +146,45 @@
       "content": "Based on the provided excerpt,  there's nothing explicitly stated that would automatically cause you problems as the tenant, *provided you follow the terms of the agreement*. However, let's break down what could potentially cause issues, and how to avoid them:\n\n**Potential Problems and How to Avoid Them:**\n\n* **Breaching the Lease:**  The most common way to run into trouble is by not following the rules of the lease.  The document clearly states:\n\n    * **No Subletting:** You can't rent out the property to someone else, even a part of it.\n    * **Residential Use Only:** You can only use the property for living, not for a business or anything else.\n    * **No Alterations:** You can't make changes to the building's structure. You *can* install and remove your own things (like shelves or pictures), but only if you don't damage the property.\n    * **Paying Bills:** You're responsible for paying your own electricity, water, and shared maintenance fees directly to the utility companies.  Make sure to keep records of your payments.\n    * **Giving Notice:** If you want to leave before the 11 months are up, you must give the landlord one month's written notice.\n\n    **To avoid problems:**  Carefully read and understand *all* the terms.  Keep a copy of the lease agreement and follow it meticulously.\n\n\n* **Damage to the Property:** The landlord is responsible for the property's working condition at the start of the lease and its return to that condition (minus normal wear and tear, damage from natural disasters, etc.) at the end.  However, you are responsible for any damage you cause beyond normal wear and tear.\n\n    **To avoid problems:**  Treat the property with respect. Report any existing problems immediately, and take care to prevent damage. Document any damage that you did *not* cause when you move in. Take photos as evidence.\n\n\n* **Deposit:** You've paid a security deposit.  This will be returned when you move out, provided you've fulfilled all the lease terms and left the property in good condition (normal wear and tear excepted).\n\n    **To avoid problems:** Get a receipt for the deposit and keep it safe. When you move out, ensure the landlord inspects the property with you to document the condition and agree on the return of your deposit.\n\n\n* **Late Payments:** While not explicitly stated regarding rent,  any late payment (rent or otherwise) could cause problems. Always pay your bills on time.\n\n\n**In short:**  As long as you understand and adhere to the terms of the lease agreement – particularly those outlined above – you should not encounter any problems.  If you are unsure about anything, it is best to clarify it with the landlord in writing before proceeding.  Keeping good records (photos, receipts, communication records) is crucial in preventing disputes.\n",
       "created_at": "2025-09-21T12:53:24.681398"
     }
+  ],
+  "fdcc8052-f705-4964-98e4-3c76d9c9513d": [
+    {
+      "id": "59ae45af-5ad1-44be-9d29-c035c7f8e29b",
+      "message_type": "user",
+      "content": "is there any due date",
+      "created_at": "2025-09-21T20:25:34.783749"
+    },
+    {
+      "id": "72ca7f69-72dc-47fa-9edf-f262f5dcae2e",
+      "message_type": "assistant",
+      "content": "No, there isn't a specific due date for this contract.  The contract continues indefinitely until either the employee (Rohan Sharma) or the employer (TechSolutions Pvt. Ltd.) decides to end it.\n",
+      "created_at": "2025-09-21T20:25:39.843153"
+    }
+  ],
+  "c3c86b56-c4e6-480a-aee8-64174b85231f": [
+    {
+      "id": "e47597cf-0475-46be-b14a-bff7d7eb9636",
+      "message_type": "user",
+      "content": "is there any due date",
+      "created_at": "2025-09-21T21:00:30.731642"
+    },
+    {
+      "id": "67ea302c-f52d-4565-9c89-12a299676cab",
+      "message_type": "assistant",
+      "content": "No, there isn't a specific due date for this contract.  The employment agreement is \"ongoing\" meaning it continues until either the employee (Rohan Sharma) or the employer (TechSolutions Pvt. Ltd.) decides to end it.\n",
+      "created_at": "2025-09-21T21:00:35.216790"
+    },
+    {
+      "id": "d188e0ce-f690-46cf-81a9-2a2aa052c480",
+      "message_type": "user",
+      "content": "is there any specific ammount mentioned",
+      "created_at": "2025-09-21T21:01:16.645932"
+    },
+    {
+      "id": "f84650cb-0b32-4d05-bca7-a90afc167231",
+      "message_type": "assistant",
+      "content": "Yes, there are several specific amounts mentioned in the contract:\n\n* **Penalty for early resignation:** If Mr. Rohan Sharma resigns before completing two years of employment, he will have to pay a penalty of ₹2,00,000 (Two Lakhs).\n\n* **Training expense recovery:** If he leaves within six months of completing his training, the company can recover the costs of that training.  The exact amount isn't specified, but it would be whatever TechSolutions spent on his training.\n\n* **Annual salary:** Mr. Sharma's annual salary is ₹6,00,000 (Six Lakhs) CTC (Cost To Company).  This is his total compensation, including salary and benefits.\n",
+      "created_at": "2025-09-21T21:01:21.657937"
+    }
   ]
 }

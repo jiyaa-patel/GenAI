@@ -3,7 +3,12 @@ import { useGoogleLogin } from '@react-oauth/google';
 // Simple API client for Django (auth) and FastAPI (documents/chat)
 const DJANGO_BASE_URL = import.meta.env.VITE_DJANGO_BASE_URL || 'http://localhost:8000';
 const FASTAPI_BASE_URL = import.meta.env.VITE_FASTAPI_BASE_URL || 'http://localhost:8001';
+
+console.log('=== API Configuration ===');
+console.log('Django URL:', DJANGO_BASE_URL);
 console.log('FastAPI URL:', FASTAPI_BASE_URL);
+console.log('Environment:', import.meta.env.MODE);
+console.log('========================');
 
 function getAuthHeaders() {
   const token = localStorage.getItem('accessToken');
@@ -194,19 +199,26 @@ export const authApi = {
 
 export const legalApi = {
   async uploadDocument(file) {
-    console.log('Uploading to:', `${FASTAPI_BASE_URL}/api/upload-document`);
+    const uploadUrl = `${FASTAPI_BASE_URL}/api/upload-document`;
+    console.log('Uploading to:', uploadUrl);
+    console.log('Auth headers:', getAuthHeaders());
+    
     const formData = new FormData();
     formData.append('file', file);
 
-    const res = await fetch(`${FASTAPI_BASE_URL}/api/upload-document`, {
+    const res = await fetch(uploadUrl, {
       method: 'POST',
       headers: { ...getAuthHeaders() },
       body: formData,
     });
+    
+    console.log('Upload response status:', res.status);
+    
     if (!res.ok) {
       let detail = '';
       try {
         detail = await res.text();
+        console.error('Upload error detail:', detail);
       } catch (_) {}
       throw new Error(`Upload failed (${res.status}): ${detail}`);
     }

@@ -30,7 +30,12 @@ SECRET_KEY = 'django-insecure-_y@ihlpikbig^bbjn&q@85%x9mo(y3$b@kq$urdhny4s!li45p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'gen-ai-legal.uc.r.appspot.com',
+    'fastapi-dot-gen-ai-legal.uc.r.appspot.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 AUTH_USER_MODEL = 'users.User'
 
@@ -77,6 +82,9 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # React dev server
     "http://127.0.0.1:5173",
+    "https://genai-silk-beta.vercel.app",  # Production frontend
+    "https://gen-ai-legal.uc.r.appspot.com",  # Django backend
+    "https://fastapi-dot-gen-ai-legal.uc.r.appspot.com",  # FastAPI service
 ]
 
 CORS_ALLOW_CREDENTIALS = True

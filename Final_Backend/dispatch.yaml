@@ -1,0 +1,9 @@
+dispatch:
+  - url: "*/api/upload-document"
+    service: fastapi
+  - url: "*/api/ask-question"
+    service: fastapi
+  - url: "*/api/chat-sessions"
+    service: fastapi
+  - url: "/"
+    service: default

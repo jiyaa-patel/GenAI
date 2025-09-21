@@ -206,7 +206,13 @@ app = FastAPI(
 # Enable CORS for frontend integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure this properly for production
+    allow_origins=[
+        "http://localhost:5173",  # Local development
+        "http://127.0.0.1:5173",
+        "https://genai-silk-beta.vercel.app",  # Production frontend
+        "https://gen-ai-legal.uc.r.appspot.com",  # Django backend
+        "https://fastapi-dot-gen-ai-legal.uc.r.appspot.com",  # FastAPI service
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

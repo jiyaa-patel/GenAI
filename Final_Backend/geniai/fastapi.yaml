@@ -1,0 +1,8 @@
+runtime: python39
+service: fastapi
+entrypoint: uvicorn geniai.api:app --host 0.0.0.0 --port $PORT
+
+env_variables:
+  GCP_PROJECT: "gen-ai-legal"
+  GCS_BUCKET_NAME: "legal-agreement-analyzer-gen-ai-legal"
+  GEMINI_API_KEY: "AIzaSyANsEjkReSfVGOkXg3v3XS82UXoaz7J95A"
