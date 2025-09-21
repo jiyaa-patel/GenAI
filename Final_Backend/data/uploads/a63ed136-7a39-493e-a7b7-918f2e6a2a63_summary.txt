@@ -1,0 +1,12 @@
+Agreement Type: 9. Other (specify)
+Summary Length: 202 words
+Generated on: 2025-09-20 10:20:49
+
+==================================================
+This document is a completion certificate issued by AWS Training & Certification, signed by Michelle Vaz, Director, to DivyMevada on June 29, 2025.  The certificate confirms the completion of the "Introduction to Generative AI - Art of the Possible" training course.  No key terms and conditions, obligations, rights, financial terms, penalties, or duration provisions are explicitly stated within the provided text.  The document itself is solely a record of course completion and lacks any contractual elements.
+
+There is no mention of fees paid, refunds, or penalties for non-completion.  Similarly,  no information regarding access duration to course materials post-completion is provided.  The certificate does not specify any specific rights granted to the recipient beyond acknowledgment of course completion.  The absence of contractual language suggests this certificate serves merely as proof of participation and does not represent a legally binding agreement.  No special conditions, such as confidentiality clauses or non-compete agreements, are included.
+
+In summary, the document is a simple certification of course completion lacking any significant legal stipulations.  Further information regarding any associated terms and conditions would need to be sourced from the original course enrollment agreement or AWS's training program guidelines.  This summary reflects only the information contained within the provided text.
+
+==================================================
