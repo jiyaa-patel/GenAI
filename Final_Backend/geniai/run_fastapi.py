@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 FastAPI Runner Script
 Starts the Legal Agreement Analyzer API with proper configuration.
@@ -16,7 +15,7 @@ sys.path.insert(0, str(current_dir))
 # Ensure Google credentials and Vertex defaults are set for Vertex AI SDK
 try:
     project_root = current_dir.parent  # backEnd directory
-    credentials_path = project_root / "credentials" / "gen-ai-legal-536c695ad0a1.json"
+    credentials_path = project_root / "credentials" / "gen-ai-legal-6480fd4d86ab.json"
 
     # Set GOOGLE_APPLICATION_CREDENTIALS if not set
     if not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") and credentials_path.exists():

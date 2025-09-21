@@ -19,7 +19,7 @@ Create a `.env` file in the `geniai/` directory:
 # PASSWORD: Temp#1234
 
 # Google Cloud Configuration
-GOOGLE_APPLICATION_CREDENTIALS=credentials/gen-ai-legal-536c695ad0a1.json
+GOOGLE_APPLICATION_CREDENTIALS=credentials/gen-ai-legal-6480fd4d86ab.json
 GCP_PROJECT=gen-ai-legal
 GCS_BUCKET_NAME=legal-agreement-analyzer-gen-ai-legal
 
