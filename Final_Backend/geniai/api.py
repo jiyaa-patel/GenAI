@@ -726,12 +726,24 @@ async def ask_question(request: QueryRequest):
         os.makedirs(temp_dir, exist_ok=True)
         temp_index_path = os.path.join(temp_dir, f"index_{document_id}.faiss")
         
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Current file directory: {current_dir}")
+        print(f"Temp directory: {temp_dir}")
+        
         with open(temp_index_path, "wb") as f:
             f.write(index_data)
         
         print(f"FAISS index saved to: {temp_index_path}")
         print(f"File exists: {os.path.exists(temp_index_path)}")
         print(f"File size: {os.path.getsize(temp_index_path) if os.path.exists(temp_index_path) else 'N/A'} bytes")
+        print(f"Absolute path: {os.path.abspath(temp_index_path)}")
+        
+        # Verify the file was written correctly
+        if not os.path.exists(temp_index_path):
+            raise Exception(f"Failed to create temp file: {temp_index_path}")
+        
+        if os.path.getsize(temp_index_path) == 0:
+            raise Exception(f"Temp file is empty: {temp_index_path}")
         
         index = faiss.read_index(temp_index_path)
         print(f"FAISS index loaded successfully with {index.ntotal} vectors")

@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(
-    os.path.dirname(os.path.dirname(__file__)), "credentials", "gen-ai-legal-536c695ad0a1.json",
+    os.path.dirname(os.path.dirname(__file__)), "credentials", "gen-ai-legal-6480fd4d86ab.json",
 )
 
 # Quick-start development settings - unsuitable for production
