@@ -1,7 +1,7 @@
 import { useGoogleLogin } from '@react-oauth/google';
 
 // Simple API client for Django (auth) and FastAPI (documents/chat)
-const DJANGO_BASE_URL = import.meta.env.VITE_DJANGO_BASE_URL || 'http://localhost:8000';
+const DJANGO_BASE_URL = import.meta.env.VITE_DJANGO_BASE_URL || 'https://gen-ai-legal.uc.r.appspot.com';
 const FASTAPI_BASE_URL = import.meta.env.VITE_FASTAPI_BASE_URL || 'http://localhost:8001';
 
 console.log('=== API Configuration ===');
