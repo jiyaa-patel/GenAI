@@ -1,7 +1,5 @@
 import uuid
 from django.db import models
-from django.db.models.functions import Now
-from django.db.models.expressions import Func
 from django.core.validators import MinValueValidator
 from users.models import User
 
@@ -20,8 +18,7 @@ class Document(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     user = models.ForeignKey(
         User,
@@ -32,15 +29,15 @@ class Document(models.Model):
     original_filename = models.TextField()
     content_type = models.TextField(null=True, blank=True)
     gcs_pdf_uri = models.TextField(null=True, blank=True)
-    gcs_vector_uri = models.TextField(null=True, blank=True)  # For vector index in GCS
-    gcs_chunks_uri = models.TextField(null=True, blank=True)  # For chunks in GCS
+    gcs_vector_uri = models.TextField(null=True, blank=True)
+    gcs_chunks_uri = models.TextField(null=True, blank=True)
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
         default='uploaded'
     )
-    created_at = models.DateTimeField(db_default=Now())
-    updated_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
         db_table = 'documents'
@@ -52,12 +49,6 @@ class Document(models.Model):
     
     def __str__(self):
         return f"{self.original_filename} ({self.status})"
-    
-    def save(self, *args, **kwargs):
-        # Auto-update updated_at field
-        from django.utils import timezone
-        self.updated_at = timezone.now()
-        super().save(*args, **kwargs)
 
 
 class DocumentChunk(models.Model):
@@ -67,8 +58,7 @@ class DocumentChunk(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     document = models.ForeignKey(
         Document,
@@ -89,7 +79,7 @@ class DocumentChunk(models.Model):
     )
     text = models.TextField()
     token_count = models.IntegerField(null=True, blank=True)
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         db_table = 'document_chunks'
@@ -110,8 +100,7 @@ class VectorIndex(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     document = models.OneToOneField(
         Document,
@@ -129,7 +118,7 @@ class VectorIndex(models.Model):
     )
     gcs_faiss_uri = models.TextField()
     gcs_chunks_uri = models.TextField(null=True, blank=True)
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         db_table = 'vector_indexes'
@@ -146,8 +135,7 @@ class ChatSession(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     user = models.ForeignKey(
         User,
@@ -168,8 +156,8 @@ class ChatSession(models.Model):
         default=0,
         validators=[MinValueValidator(0)]
     )
-    created_at = models.DateTimeField(db_default=Now())
-    last_updated = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_updated = models.DateTimeField(auto_now=True)
     
     class Meta:
         db_table = 'chat_sessions'
@@ -181,15 +169,8 @@ class ChatSession(models.Model):
     
     def __str__(self):
         return f"{self.name} ({self.message_count} messages)"
-    
-    def save(self, *args, **kwargs):
-        # Auto-update last_updated field
-        from django.utils import timezone
-        self.last_updated = timezone.now()
-        super().save(*args, **kwargs)
 
 
-# Optional: Chat messages model (if you want to store individual messages)
 class ChatMessage(models.Model):
     """
     Chat messages table - stores individual messages in chat sessions
@@ -203,8 +184,7 @@ class ChatMessage(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     chat_session = models.ForeignKey(
         ChatSession,
@@ -225,7 +205,7 @@ class ChatMessage(models.Model):
         choices=MESSAGE_TYPE_CHOICES
     )
     content = models.TextField()
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         db_table = 'chat_messages'
@@ -252,8 +232,7 @@ class ProcessingJob(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     document = models.ForeignKey(
         Document,
@@ -275,7 +254,7 @@ class ProcessingJob(models.Model):
         default='pending'
     )
     error_message = models.TextField(null=True, blank=True)
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
     completed_at = models.DateTimeField(null=True, blank=True)
     
     class Meta:
@@ -297,8 +276,7 @@ class DocumentSummary(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     document = models.OneToOneField(
         Document,
@@ -320,7 +298,7 @@ class DocumentSummary(models.Model):
     confidence_score = models.FloatField(null=True, blank=True, help_text="AI confidence score for the summary")
     key_points = models.JSONField(null=True, blank=True, help_text="JSON array of key points extracted")
     risk_factors = models.JSONField(null=True, blank=True, help_text="JSON array of identified risk factors")
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         db_table = 'summaries'
