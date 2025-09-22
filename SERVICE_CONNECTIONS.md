@@ -68,7 +68,6 @@ env_variables:
 env_variables:
   GCP_PROJECT: "gen-ai-legal"
   GCS_BUCKET_NAME: "legal-agreement-analyzer-gen-ai-legal"
-  GEMINI_API_KEY: "AIzaSyANsEjkReSfVGOkXg3v3XS82UXoaz7J95A"
 ```
 
 ## CORS Configuration
