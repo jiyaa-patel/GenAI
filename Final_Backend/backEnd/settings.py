@@ -33,6 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'gen-ai-legal.uc.r.appspot.com',
     'fastapi-dot-gen-ai-legal.uc.r.appspot.com',
+    'https://genai-silk-beta.vercel.app',
     'localhost',
     '127.0.0.1'
 ]
@@ -57,6 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
+    'backEnd.middleware.CrossOriginOpenerPolicyMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -89,6 +91,15 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -101,6 +112,10 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
     'x-user-email',  # Add custom header
 ]
+
+# Cross-Origin-Opener-Policy settings for Google OAuth
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
 ROOT_URLCONF = 'backEnd.urls'
 

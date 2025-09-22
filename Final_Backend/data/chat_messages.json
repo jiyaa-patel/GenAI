@@ -186,5 +186,33 @@
       "content": "Yes, there are several specific amounts mentioned in the contract:\n\n* **Penalty for early resignation:** If Mr. Rohan Sharma resigns before completing two years of employment, he will have to pay a penalty of ₹2,00,000 (Two Lakhs).\n\n* **Training expense recovery:** If he leaves within six months of completing his training, the company can recover the costs of that training.  The exact amount isn't specified, but it would be whatever TechSolutions spent on his training.\n\n* **Annual salary:** Mr. Sharma's annual salary is ₹6,00,000 (Six Lakhs) CTC (Cost To Company).  This is his total compensation, including salary and benefits.\n",
       "created_at": "2025-09-21T21:01:21.657937"
     }
+  ],
+  "43bf6525-dfc4-4c0d-b54d-cb94ae29f698": [
+    {
+      "id": "a405c0b3-e2d9-4b42-8f9d-6079a1efdd4b",
+      "message_type": "user",
+      "content": "is there any crucial date mentioned?",
+      "created_at": "2025-09-21T23:39:32.245271"
+    },
+    {
+      "id": "7c9ed787-ba31-4edd-b0df-eed86609a9d1",
+      "message_type": "assistant",
+      "content": "Yes, there is a crucial date mentioned in the employment agreement:  **August 20th, 2025**. This is the date the agreement was signed.  This date is important because it's the official start date of the contract between TechSolutions Pvt. Ltd. and Mr. Rohan Sharma.\n",
+      "created_at": "2025-09-21T23:39:37.561391"
+    }
+  ],
+  "d5dd34c0-514e-4984-9d26-6055178a5eed": [
+    {
+      "id": "124237e5-bbfb-44eb-afec-e9c4e3f2cdc2",
+      "message_type": "user",
+      "content": "is there any crucial date mentioned?",
+      "created_at": "2025-09-21T23:44:25.211932"
+    },
+    {
+      "id": "72e6a14f-1408-403d-84b1-0fbbdf81fa2c",
+      "message_type": "assistant",
+      "content": "Yes, the most crucial date mentioned is **August 20th, 2025**.  This is the date the employment agreement was signed between TechSolutions Pvt. Ltd. and Mr. Rohan Sharma.  This date is important because it marks the official start of the employment contract.\n",
+      "created_at": "2025-09-21T23:44:30.119295"
+    }
   ]
 }

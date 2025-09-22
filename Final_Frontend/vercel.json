@@ -1,0 +1,20 @@
+{
+  "env": {
+    "VITE_GOOGLE_CLIENT_ID": "488637618552-fs78i0lr0tul8qo38dmt45mn5hm3h50q.apps.googleusercontent.com",
+    "VITE_DJANGO_BASE_URL": "https://gen-ai-legal.uc.r.appspot.com",
+    "VITE_FASTAPI_BASE_URL": "https://fastapi-dot-gen-ai-legal.uc.r.appspot.com"
+  },
+  "build": {
+    "env": {
+      "VITE_GOOGLE_CLIENT_ID": "488637618552-fs78i0lr0tul8qo38dmt45mn5hm3h50q.apps.googleusercontent.com",
+      "VITE_DJANGO_BASE_URL": "https://gen-ai-legal.uc.r.appspot.com",
+      "VITE_FASTAPI_BASE_URL": "https://fastapi-dot-gen-ai-legal.uc.r.appspot.com"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
