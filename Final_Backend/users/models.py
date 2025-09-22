@@ -40,12 +40,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-        db_default=Func(function='uuid_generate_v4')
+        editable=False
     )
     email = models.EmailField(unique=True)
     display_name = models.CharField(max_length=255, null=True, blank=True)
-    created_at = models.DateTimeField(db_default=Now())
+    created_at = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(null=True, blank=True, db_column='last_login_at')
 
     # Django admin/permissions requirements
