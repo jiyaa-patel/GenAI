@@ -123,7 +123,10 @@ export const authApi = {
   },
 
   async signup(payload) {
-    const res = await fetch(`${DJANGO_BASE_URL}/api/signup/`, {
+    const signupUrl = `${DJANGO_BASE_URL}/api/signup/`;
+    console.log('Signup URL:', signupUrl);
+    console.log('DJANGO_BASE_URL:', DJANGO_BASE_URL);
+    const res = await fetch(signupUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -142,7 +145,9 @@ export const authApi = {
   },
 
   async googleLogin(token) {
-    const res = await fetch(`${DJANGO_BASE_URL}/api/google-login/`, {
+    const googleLoginUrl = `${DJANGO_BASE_URL}/api/google-login/`;
+    console.log('Google Login URL:', googleLoginUrl);
+    const res = await fetch(googleLoginUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token })
