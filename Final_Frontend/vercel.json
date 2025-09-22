@@ -11,6 +11,17 @@
       "VITE_FASTAPI_BASE_URL": "https://fastapi-dot-gen-ai-legal.uc.r.appspot.com"
     }
   },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin-allow-popups"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
