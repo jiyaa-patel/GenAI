@@ -47,6 +47,7 @@ const Signup = () => {
 
   // Replace the temporary handleGoogleSignup with the hook
   const handleGoogleSignup = useGoogleLogin({
+    flow: 'auth-code',
     onSuccess: async (tokenResponse) => {
       try {
         // Your existing logic from the old function, now in a try/catch block
